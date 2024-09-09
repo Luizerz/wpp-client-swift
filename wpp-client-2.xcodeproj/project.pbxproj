@@ -11,7 +11,7 @@
 		4FBDB9B32C8A874200467C9D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FBDB9B22C8A874200467C9D /* ContentView.swift */; };
 		4FBDB9B52C8A874300467C9D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4FBDB9B42C8A874300467C9D /* Assets.xcassets */; };
 		4FBDB9B82C8A874300467C9D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4FBDB9B72C8A874300467C9D /* Preview Assets.xcassets */; };
-		4FBDB9C22C8A877400467C9D /* DataWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FBDB9BE2C8A877400467C9D /* DataWrapper.swift */; };
+		4FBDB9C22C8A877400467C9D /* DataContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FBDB9BE2C8A877400467C9D /* DataContainer.swift */; };
 		4FBDB9C32C8A877400467C9D /* MessageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FBDB9BF2C8A877400467C9D /* MessageModel.swift */; };
 		4FBDB9C42C8A877400467C9D /* VerifyMessageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FBDB9C02C8A877400467C9D /* VerifyMessageModel.swift */; };
 		4FBDB9C82C8A87A400467C9D /* WebSocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FBDB9C72C8A87A400467C9D /* WebSocket.swift */; };
@@ -27,7 +27,7 @@
 		4FBDB9B22C8A874200467C9D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		4FBDB9B42C8A874300467C9D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4FBDB9B72C8A874300467C9D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		4FBDB9BE2C8A877400467C9D /* DataWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataWrapper.swift; sourceTree = "<group>"; };
+		4FBDB9BE2C8A877400467C9D /* DataContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataContainer.swift; sourceTree = "<group>"; };
 		4FBDB9BF2C8A877400467C9D /* MessageModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageModel.swift; sourceTree = "<group>"; };
 		4FBDB9C02C8A877400467C9D /* VerifyMessageModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerifyMessageModel.swift; sourceTree = "<group>"; };
 		4FBDB9C72C8A87A400467C9D /* WebSocket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebSocket.swift; sourceTree = "<group>"; };
@@ -67,13 +67,10 @@
 		4FBDB9AF2C8A874200467C9D /* wpp-client-2 */ = {
 			isa = PBXGroup;
 			children = (
+				98ADC3962C8F620C00AF14FD /* Views */,
+				98ADC3952C8F620300AF14FD /* Services */,
 				4FBDB9C12C8A877400467C9D /* Models */,
 				4FBDB9B02C8A874200467C9D /* wpp_client_2App.swift */,
-				4FBDB9B22C8A874200467C9D /* ContentView.swift */,
-				4FBDB9CD2C8A902200467C9D /* SheetView.swift */,
-				4FBDB9D12C8A93FA00467C9D /* ChatView.swift */,
-				4FBDB9CB2C8A8B4D00467C9D /* ContactList.swift */,
-				4FBDB9C72C8A87A400467C9D /* WebSocket.swift */,
 				4FBDB9B42C8A874300467C9D /* Assets.xcassets */,
 				4FBDB9B62C8A874300467C9D /* Preview Content */,
 			);
@@ -91,12 +88,31 @@
 		4FBDB9C12C8A877400467C9D /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				4FBDB9BE2C8A877400467C9D /* DataWrapper.swift */,
+				4FBDB9BE2C8A877400467C9D /* DataContainer.swift */,
 				4FBDB9BF2C8A877400467C9D /* MessageModel.swift */,
 				4FBDB9C02C8A877400467C9D /* VerifyMessageModel.swift */,
 				4FBDB9CF2C8A906100467C9D /* Contact.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		98ADC3952C8F620300AF14FD /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				4FBDB9C72C8A87A400467C9D /* WebSocket.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		98ADC3962C8F620C00AF14FD /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				4FBDB9B22C8A874200467C9D /* ContentView.swift */,
+				4FBDB9CD2C8A902200467C9D /* SheetView.swift */,
+				4FBDB9D12C8A93FA00467C9D /* ChatView.swift */,
+				4FBDB9CB2C8A8B4D00467C9D /* ContactList.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -173,7 +189,7 @@
 				4FBDB9B32C8A874200467C9D /* ContentView.swift in Sources */,
 				4FBDB9D22C8A93FA00467C9D /* ChatView.swift in Sources */,
 				4FBDB9C82C8A87A400467C9D /* WebSocket.swift in Sources */,
-				4FBDB9C22C8A877400467C9D /* DataWrapper.swift in Sources */,
+				4FBDB9C22C8A877400467C9D /* DataContainer.swift in Sources */,
 				4FBDB9C42C8A877400467C9D /* VerifyMessageModel.swift in Sources */,
 				4FBDB9CC2C8A8B4D00467C9D /* ContactList.swift in Sources */,
 				4FBDB9B12C8A874200467C9D /* wpp_client_2App.swift in Sources */,
@@ -312,7 +328,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"wpp-client-2/Preview Content\"";
-				DEVELOPMENT_TEAM = PPSYB39C6H;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -342,7 +358,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"wpp-client-2/Preview Content\"";
-				DEVELOPMENT_TEAM = PPSYB39C6H;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;

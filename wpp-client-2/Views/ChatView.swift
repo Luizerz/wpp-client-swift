@@ -10,7 +10,11 @@ import SwiftUI
 struct ChatView: View {
     let id: String
     let contactId: String
-    @Binding var chatMessages: [Message]
+    @Binding var chatMessages: [Message] {
+        didSet {
+            print(self.chatMessages)
+        }
+    }
     @State var messageToSend: String = ""
     var onSend: (Message) -> ()
 
@@ -19,7 +23,7 @@ struct ChatView: View {
         VStack {
             ScrollView(.vertical) {
                 VStack {
-                    ForEach(chatMessages, id: \.content) { message in
+                    ForEach(chatMessages, id: \.hashValue ) { message in
                         if ((message.from == self.id || message.from == self.contactId) && (message.to == self.id || message.to == self.contactId)) {
                             Text(message.content)
                                 .padding(10)

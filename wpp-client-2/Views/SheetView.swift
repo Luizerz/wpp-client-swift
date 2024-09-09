@@ -14,13 +14,13 @@ struct SheetView: View {
     @State private var name: String = ""
     @State private var id: String = ""
     var body: some View {
-        TextField("Digite o apelido do seu contato:", text: $name)
-        TextField("Digite o ID do seu contato:", text: $id)
+        TextField("Nome ou Apelido:", text: $name)
+        TextField("Número:", text: $id)
         Button(action: {
             contactList.append(Contact(name: name, id: id))
             dismiss()
         }, label: {
-            Text("Confirmar")
+            Text("Salvar")
         }).buttonStyle(.bordered)
 
 

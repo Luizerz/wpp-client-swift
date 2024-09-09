@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Message: Codable {
+struct Message: Codable,Hashable {
     let from: String
     let to: String
     let content: String

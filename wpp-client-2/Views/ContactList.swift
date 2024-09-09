@@ -19,21 +19,32 @@ struct ContactList: View {
                 allDisabled ? wsClient.connect() : wsClient.disconnect()
                 allDisabled.toggle()
             } label: {
-                Text(allDisabled ? "Ficar OFF" : "Ficar ON")
+                Text(allDisabled ? "Conectar ao servidor" : "Desconectar ao servidor")
             }
-
+            .padding(.bottom, 250)
+            
             ScrollView{
                 VStack(alignment: .center) {
                     if contactList.isEmpty {
-                        Text("Sem Contatos...")
+                        Text("Você não tem contatos!!")
                     } else {
                         ForEach(contactList, id: \.self) { contact in
                             NavigationLink {
                                 ChatView(id: id, contactId: contact.id, chatMessages: self.$wsClient.messages, onSend: { message in
-                                    self.wsClient.sendData(DataWrapper(contentType: .message, content: message.toData()))
+                                    self.wsClient.sendData(DataContainer(contentType: .message, content: message.toData()))
                                 })
                             } label: {
                                 Text(contact.name)
+                            }
+                            .contextMenu {
+                                Button {
+                                    self.contactList.removeAll {
+                                        $0.id == contact.id
+                                    }
+                                } label: {
+                                    Text("Remover")
+                                }
+                                
                             }
                         }
                     }
@@ -43,23 +54,23 @@ struct ContactList: View {
             Button(action: {
                 self.isSheetPresented.toggle()
             }, label: {
-                Text("➕ Adicionar Contato")
+                Text("Adicionar Contato")
             })
-
+            
         }
         .navigationBarBackButtonHidden(true)
         .sheet(isPresented: $isSheetPresented) {
-           SheetView(contactList: $contactList)
+            SheetView(contactList: $contactList)
         }
         .onAppear {
             self.wsClient.id = self.id
             self.wsClient.connect()
         }
-
+        
     }
-
+    
     func addContact() {
-
+        
     }
 }
 //

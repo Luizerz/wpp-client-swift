@@ -1,10 +1,3 @@
-//
-//  File.swift
-//
-//
-//  Created by Luiz Sena on 02/09/24.
-//
-
 import Foundation
 
 
@@ -13,7 +6,7 @@ enum DTO: Codable {
     case verifyMessages
 }
 
-struct DataWrapper: Codable {
+struct DataContainer: Codable {
     let contentType: DTO
     let content: Data
 
@@ -21,5 +14,3 @@ struct DataWrapper: Codable {
         return try! JSONEncoder().encode(self)
     }
 }
-
-

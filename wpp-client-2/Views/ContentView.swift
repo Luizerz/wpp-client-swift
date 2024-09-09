@@ -12,14 +12,14 @@ struct ContentView: View {
 
     var body: some View {
         VStack {
-            Text("Digite o seu número:")
+            Text("Registre seu número:")
             TextField("Seu número", value: $number, format: .number)
                 .keyboardType(.numberPad)
                 .textFieldStyle(.roundedBorder)
                 .padding()
 
             NavigationLink(destination: ContactList(id: self.number.description)) {
-                Text("Confirmar!")
+                Text("Adicionar seu numero ao servidor!")
             }
         }
         .padding()

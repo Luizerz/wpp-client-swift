@@ -24,7 +24,7 @@ class WebSocket: ObservableObject {
         webSocketTask?.resume()
         receiveMessage()
         let verify = VerifyMessage(from: id, content: [])
-        self.sendData(DataWrapper(contentType: .verifyMessages, content: verify.toData()))
+        self.sendData(DataContainer(contentType: .verifyMessages, content: verify.toData()))
     }
 
     func disconnect() {
@@ -37,10 +37,11 @@ class WebSocket: ObservableObject {
             case .success(let success):
                 switch success {
                 case .data(let data):
-                    let decodedData = try! JSONDecoder().decode(DataWrapper.self, from: data)
+                    let decodedData = try! JSONDecoder().decode(DataContainer.self, from: data)
                     switch decodedData.contentType {
                     case .message:
                         let decodedContent = try! JSONDecoder().decode(Message.self, from: decodedData.content)
+                        
                         DispatchQueue.main.async {
                             self.messages.append(decodedContent)
                         }
@@ -63,8 +64,8 @@ class WebSocket: ObservableObject {
         }
     }
 
-    func sendData(_ dataWrapper: DataWrapper ) {
-        let encoded = try! JSONEncoder().encode(dataWrapper)
+    func sendData(_ dataContainer: DataContainer ) {
+        let encoded = try! JSONEncoder().encode(dataContainer)
         webSocketTask?.send(.data(encoded)) { error in
             if let error = error {
                 print(error.localizedDescription)
