@@ -23,7 +23,7 @@ struct ChatView: View {
                         if ((message.from == self.id || message.from == self.contactId) && (message.to == self.id || message.to == self.contactId)) {
                             Text(message.content)
                                 .padding(10)
-                                .background(message.to == id ? .green : .blue)
+                                .background(RoundedRectangle(cornerRadius: 8.0).foregroundStyle(message.to == id ? .green : .blue))
                         }
                     }
                 }

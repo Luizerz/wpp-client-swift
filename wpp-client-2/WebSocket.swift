@@ -11,9 +11,7 @@ class WebSocket: ObservableObject {
     private let serverIp = "localhost:8080"
     private var webSocketTask: URLSessionWebSocketTask?
     private var httpTask: URLSessionDataTask?
-    @Published var messages: [Message] = [] {didSet {
-        print(messages)
-    }}
+    @Published var messages: [Message] = []
     @Published var id: String = ""
 
 
